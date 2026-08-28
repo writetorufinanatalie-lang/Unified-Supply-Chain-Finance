@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #0B0F14;
+  --bg-surface: #12181F;
+  --bg-surface-2: #1A222C;
+  --border: #262F3A;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #5C6B7A;
+
+  --accent: #2DD4BF;
+  --accent-hover: #14B8A6;
+
+  --risk-high: #EF4444;
+  --risk-high-bg: rgba(239, 68, 68, 0.125);
+  --risk-medium: #F59E0B;
+  --risk-medium-bg: rgba(245, 158, 11, 0.125);
+  --risk-low: #22C55E;
+  --risk-low-bg: rgba(34, 197, 94, 0.125);
+
+  --positive: #22C55E;
+  --negative: #EF4444;
+}
+
+.light {
+  --bg-base: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #F1F5F9;
+  --border: #E2E8F0;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+
+  /* Risk and accent colors never change between themes */
+  --accent: #2DD4BF;
+  --accent-hover: #14B8A6;
+
+  --risk-high: #EF4444;
+  --risk-high-bg: rgba(239, 68, 68, 0.125);
+  --risk-medium: #F59E0B;
+  --risk-medium-bg: rgba(245, 158, 11, 0.125);
+  --risk-low: #22C55E;
+  --risk-low-bg: rgba(34, 197, 94, 0.125);
+
+  --positive: #22C55E;
+  --negative: #EF4444;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular numbers for financial precision */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.mono-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Standardized Card Classes */
+.fintech-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 1.25rem; /* p-5 */
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fintech-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fintech-card-hover:hover {
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Pulse animation for loading skeletons */
+@keyframes shimmer {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.5; }
+}
+
+.skeleton-pulse {
+  animation: shimmer 1.5s infinite ease-in-out;
+  background-color: var(--bg-surface-2);
+}
+
+/* React-flow theme customization */
+.react-flow__renderer {
+  background-color: var(--bg-base) !important;
+}
+.react-flow__controls button {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+  fill: var(--text-primary) !important;
+}
+.react-flow__controls button:hover {
+  background-color: var(--bg-surface-2) !important;
+}
+.react-flow__attribution {
+  display: none !important;
+}
